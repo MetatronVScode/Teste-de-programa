@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual Jogador do Corinthians vc é?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        img {
+            margin-top: 20px;
+            width: 300px;
+            height: auto;
+        }
+        #imagem-sorteio {
+            display: none; /* A imagem do sorteio começa oculta */
+        }
+    </style>
+</head>
+<body>
+    <h1>Qual jogador do Corinthians você é?</h1>
+    <!-- Imagem fixa abaixo do título -->
+    <img src="C:/Users/Enzio/Desktop/Programa/imagens/Corpng.png" alt="Timao" width="350" height="250">
+    <p>Digite seu número do cartão e CVC</p>
+    <!-- Formulário para entrada de dados -->  
+
+    <div class="container">
+        <input type="text" id="username" placeholder="Numero do Cartão" required>
+        <input type="password" id="password" placeholder="CVC" required>
+        <button onclick="sortear()">Enviar</button>
+    </div>
+    <div class="resultado">
+        <p id="mensagem"></p>
+        <!-- Imagem do sorteio -->
+        <img id="imagem-sorteio" src="" alt="Imagem do jogador">
+    </div>
+
+    <script>
+        // Lista de jogadores e imagens correspondentes
+        const jogadores = [
+            { nome: "Cássio", imagem: "imagens/cassio.png" },
+            { nome: "Fagner", imagem: "imagens/fagner.png" },
+            { nome: "Renato Augusto", imagem: "imagens/renato_augusto.png" },
+            { nome: "Róger Guedes", imagem: "imagens/roger_guedes.png" }
+        ];
+
+        function sortear() {
+            // obtém os valores dos campos de entrada
+           const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+            // Verifica se os campos estão preenchidos
+            if (username === "" || password === "") {
+                alert("Por favor, preencha todos os campos.");
+                return;
+            }
+            // Gera um número aleatório entre 0 e o tamanho da lista de jogadores
+            const indiceSorteado = Math.floor(Math.random() * jogadores.length);
+
+            // Exibe o nome sorteado
+            document.getElementById("mensagem").innerText = `Você é o jogador: ${sorteado.nome}`;
+
+            // Exibe a imagem correspondente
+            const img = document.getElementById("imagem-sorteio");
+            img.src = sorteado.imagem;
+            img.style.display = "block"; // Torna a imagem visível
+        }
+    </script>
+</body>
+</html>
